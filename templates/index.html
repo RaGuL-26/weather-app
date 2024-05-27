@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card weather-container">
+            <h1 class="card-header">Weather App</h1>
+            <div class="card-body">
+                <form method="GET" action="">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="city" placeholder="Enter city name" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Get Weather</button>
+                </form>
+                
+                <div class="weather-info mt-4">
+                    {% if city_name %}
+                    <p>City Name: {{ city_name }}</p>
+                    {% endif %}
+                    
+                    {% if date_time %}
+                    <p>Date and Time: {{ date_time }}</p>
+                    {% endif %}
+                    
+                    {% if image_url %}
+                    <img src="{{ image_url }}" alt="Weather Icon" class="img-fluid">
+                    {% endif %}
+                    
+                    {% if degree %}
+                    <p>Temperature: {{ degree }}</p>
+                    {% endif %}
+                    
+                    {% if full_html_content %}
+                    <p>Daily Weather Forecast:</p>
+                    <span>{{ full_html_content|safe }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
